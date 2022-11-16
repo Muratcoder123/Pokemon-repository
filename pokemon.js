@@ -1,10 +1,18 @@
-fetch('pokemon.json')
+/*fetch('pokemon.json')
     .then(function(response) {
         return response.json();
     })
     .then(function(data) {
         displayPokemonCards(data)
     });
+
+*/
+
+$(document).ready(function() {
+    $.get("https://uyghur.ai/course/data/pokemon.json", function(data, status) {
+      displayPokemonCards(data);
+    });
+    
 
 function displayPokemonCards(pokemonData) {
     let pokemonDiv = document.getElementById("pokemonContainer");
@@ -77,7 +85,6 @@ function pokemonSayHello(pokemon) {
     alert("Hi, I'm " + pokemon.name + " I'm " + pokemon.type + " type.");
 }
 
-$(document).ready(function() {
     $("#hide-type").click(function() {
         let selectedType = $('#pokemonTypeOption :selected').text();
         if (selectedType == "Water") {
@@ -149,4 +156,4 @@ $(document).ready(function() {
     
     });
 
-});
+  });
